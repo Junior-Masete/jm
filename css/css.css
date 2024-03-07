@@ -328,6 +328,9 @@ input {
 .to-top {
     max-width: 1200px;
     margin: auto;
+    position: fixed;
+    bottom: 50px;
+    left: 20%;
 }
 
 /*----------------MEDIA QUERIES---------------------*/
