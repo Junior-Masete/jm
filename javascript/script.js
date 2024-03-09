@@ -16,6 +16,22 @@ const canExecute = () => {
             navv.classList.remove('nav-visible');
         }))
 
+    /*      For fixed nav                            */
+    
+    window.addEventListener('scroll', () => {
+        const toTopBtn = document.querySelector('.to-top');
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            toTopBtn.classList.add("show");
+          } else {
+            toTopBtn.classList.remove("show");
+          }
+    });
+
+    function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+
     
     /*      form submission and Validation       */
 
