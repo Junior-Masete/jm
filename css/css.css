@@ -358,7 +358,6 @@ input {
 
 /*----------------MEDIA QUERIES---------------------*/
 
-
 @media (max-width: 768px) {
     #my-logo {
         width: 50px;
