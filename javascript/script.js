@@ -1,5 +1,40 @@
 const canExecute = () => {
 
+
+    /*      Project hover Effect         */
+    const handleOnMouseMove = e => {
+        const {currentTarget: target} = e;
+    
+        const rect = target.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+    
+        target.style.setProperty("--mouse-x", `${x}px`);
+        target.style.setProperty("--mouse-y", `${y}px`);
+    }
+    
+    for(const block of document.querySelectorAll('.block')) {
+        block.onmousemove = e => handleOnMouseMove(e);
+    }
+    
+    let navBtn = document.querySelectorAll('.navBtn').forEach(navBtn => {
+        navBtn.addEventListener('mousemove', (e) => {
+            let x = e.offsetX;
+            let y = e.offsetY;
+            let  btnWidth = navBtn.clientWidth;
+            let btnHeight = navBtn.clientHeight;
+            let moveX = (x - btnWidth/2);
+            let moveY = (y - btnHeight/2);
+            navBtn.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`
+    
+        })
+    
+        navBtn.addEventListener('mouseout', (e) => {
+            navBtn.style.transform = '';
+        })
+    })
+    
+
     /*      Navigation for small devices         */
     const menubar = document.querySelector('.menubar');
     const navv = document.querySelector('.nav');
@@ -15,22 +50,6 @@ const canExecute = () => {
         i.addEventListener('click', () => {
             navv.classList.remove('nav-visible');
         }))
-
-    /*      For fixed nav                            */
-    
-    window.addEventListener('scroll', () => {
-        const toTopBtn = document.querySelector('.to-top');
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            toTopBtn.classList.add("show");
-          } else {
-            toTopBtn.classList.remove("show");
-          }
-    });
-
-    function scrollToTop() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
 
     
     /*      form submission and Validation       */
@@ -122,8 +141,3 @@ const canExecute = () => {
 }
 
 document.addEventListener('DOMContentLoaded', canExecute);
-
-
-
-
-

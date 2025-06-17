@@ -37,7 +37,6 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .min-nav, #cancelBtn {
@@ -140,17 +139,13 @@ a span:hover {
     flex-wrap: wrap;
 }
 
-.about-me h1{
-    text-align: center;
+.about-me {
+    
 }
 
 .my-skills {
     max-width: 400px;
     
-}
-
-.my-skills h3 {
-    text-align: center;
 }
 
 
@@ -162,9 +157,9 @@ a span:hover {
 }
 
 .myprojects .container h1 {
-    text-align: center;
-    /* padding-right: 400px;*/
-    padding-bottom: 10px; 
+    text-align: right;
+    padding-right: 400px;
+    padding-bottom: 10px;
 }
 
 
@@ -187,18 +182,33 @@ a span:hover {
     background-color: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
-    transition: 1s;
 }
 
-.block:hover {
-    background-color: rgba(255, 255, 255, 0.04);
+.block:hover::before {
+  opacity: 1;
 }
 
+.block::before {
+  background: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.06),
+        transparent 40%
+    );
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    transition: opacity 500ms;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
+}
 
 .tool {
-    color: #929195;
-    /*background-color: #141a23;*/
-    border: 1px solid #787779;
+    background-color: #929195;
+    color: #141a23;
     min-width: 50px;
     text-align: center;
     border-radius: 2px;
@@ -214,7 +224,6 @@ a span:hover {
 }
 
 article h3 {
-    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -236,10 +245,6 @@ article svg {
 .col1, .col2 {
    
     flex-basis: 50%;
-}
-
-.col1 h1 {
-    text-align: center;
 }
 
 .col1 h3 {
@@ -265,10 +270,6 @@ article svg {
     background-color: rgba(255, 255, 255, 0.05);
     padding: 1em;
     border-radius: 5px;
-}
-
-.my-form h3 {
-    text-align: center;
 }
 
 input, textarea {
@@ -319,7 +320,7 @@ input {
     vertical-align: -14%;
 }
 
- .submitbtn button, .cv-btn, .to-top a {
+ .submitbtn button {
     background-color: #929195;
     color:#141a23;
     border: none;
@@ -329,7 +330,7 @@ input {
     transition: 0.2s;
 }
 
-.submitbtn button:hover, .cv-btn:hover, .to-top a:hover {
+.submitbtn button:hover {
     cursor: pointer;
     background-color: #585859;
 }
@@ -340,24 +341,11 @@ input {
     font-size: 30px;
 }
 
-.to-top {
-    display: none;
-    max-width: 1200px;
-    margin: auto;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    transition: opacity 0.6s;
-}
-
-
-
-.show {
-    display: block;
-    opacity: 1;
-}
-
 /*----------------MEDIA QUERIES---------------------*/
+@media (min-width: 480px) {
+    
+}
+
 
 @media (max-width: 768px) {
     #my-logo {
@@ -384,7 +372,6 @@ input {
         position: fixed;
         top: 0;
         width: 100%;
-	-webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         /*background-color: #141a23;*/
         height: 60vh;
@@ -462,5 +449,4 @@ input {
         width: 100%;
         margin-top: 15px;
     }
-    
 }
